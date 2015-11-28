@@ -16,6 +16,11 @@ Steps to connect the components together:
 [Note: The grove motion sensor is very sensitive, hence, a potentiometer might be required.]
 3. Open the all the codes attached above in Arduino, and push in the codes to the linkedit one board.
 
+Libraries used in the codes:
+- Ultrasonic.h
+- Wire.h
+- Rgb lcd.h
+
 Setup image:
 https://drive.google.com/file/d/0B_YKwVmw1nubLXc1ZzRjM1lzQnM/view?usp=sharing
 
