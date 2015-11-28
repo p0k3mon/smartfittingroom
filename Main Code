@@ -1,3 +1,5 @@
+//team p0k3mon [Melisa,Joycelyn,Natasha,Zijun]
+
 #include <Ultrasonic.h> //need to download an ultrasonic library
 #include <LWiFi.h>
 #include <LWiFiClient.h>
@@ -78,24 +80,26 @@ void loop()
         
         lcd.clear();
         int RangeInCentimeters;
-        RangeInCentimeters = ultrasonic.MeasureInCentimeters();
+        RangeInCentimeters = ultrasonic.MeasureInCentimeters(); //ultrasonic code
         
-        int rfid = getrfid();
+        int rfid = getrfid(); //call out the getrfid() method
         //Serial.println(rfid);
         
-         int full;
+         int full; //indicate the motion sensor begin high [1] or low [0]
          // put your main code here, to run repeatedly:
-          if(digitalRead(motion) == HIGH && RangeInCentimeters < 12) {
-               digitalWrite(LED,HIGH);
-               lcd.print("Occupied");
-               full = 1;
+         //This main code is where the all the sensors sense and measure/detect any changes and generates the output in the lcd.
+
+          if(digitalRead(motion) == HIGH && RangeInCentimeters < 12) { //if the motion is high and the distance measured by the ultrasonic is less than 12cm
+               digitalWrite(LED,HIGH); //turns on the led
+               lcd.print("Occupied"); //print out "occupied"
+               full = 1; 
                delay (2000);
                lcd.clear();
-               lcd.println(rfid);
+               lcd.println(rfid); //print out the rfid tag
               delay (2000);
               lcd.clear();
           }
-          else if (digitalRead(motion) == HIGH && RangeInCentimeters > 12) {
+          else if (digitalRead(motion) == HIGH && RangeInCentimeters > 12) { //if the motion is high and the distance measured by the ultrasonic is more than 12cm
               digitalWrite(LED,LOW);
               lcd.println("Vacant");
               full = 0;
@@ -103,7 +107,7 @@ void loop()
               lcd.clear();
               
           }
-          else if (digitalRead(motion) == LOW && RangeInCentimeters < 12) {
+          else if (digitalRead(motion) == LOW && RangeInCentimeters < 12) { //if the motion is low and the distance measured by the ultrasonic is less than 12cm
               digitalWrite(LED,HIGH);
               lcd.println("Occupied");
               full = 1;
@@ -113,7 +117,7 @@ void loop()
               delay (2000);
               lcd.clear();
           }
-        else {
+        else { //if the motion is low and the distance measured by the ultrasonic is more than 12cm
               digitalWrite(LED,LOW);
               lcd.println("Vacant");
               full = 0;
@@ -145,7 +149,7 @@ void loop()
     loop();    
 }
 
-int getrfid(){
+int getrfid(){ //in this method, it generates the rfid tag
  
 if (Serial1.available() > 0)
 {
@@ -157,7 +161,7 @@ if (Serial1.available() > 0)
     
     int num = 0;
     //Serial.print("I got into the getrfid loop");
- while (num != 14)
+ while (num != 14) //the rfid tag generates for 13 times before it generates the whole output
   {
    // Serial.println("I GOT INTO THE NUM!=14 LOOP");
     incomingdata = Serial1.read();
