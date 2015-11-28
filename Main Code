@@ -1,11 +1,11 @@
-#include <Ultrasonic.h>
+#include <Ultrasonic.h> //need to download an ultrasonic library
 #include <LWiFi.h>
 #include <LWiFiClient.h>
 #include <LWiFiServer.h>
 #include <LWiFiUdp.h>
 
-#include <Wire.h>
-#include "rgb_lcd.h"
+#include <Wire.h> //need to insert a wire.h library
+#include "rgb_lcd.h" //need to download a rgb lcd.h library
 #include "IotHttpClient.h"
 #include "IotUtils.h"
 
@@ -14,8 +14,8 @@
 // ********************************************
 // ****** START user defined definitions ******
 // ********************************************
-#define WIFI_SSID  "AndroidAP" //"TP-IOT"
-#define WIFI_PASSWORD "xafs6711"    //"iot@tp4me"
+#define WIFI_SSID  "Your Wifi ID" 
+#define WIFI_PASSWORD "Your wifi password"    
 // ******************************************
 // ****** END user defined definitions ******
 // ******************************************
@@ -23,7 +23,7 @@
 //#define DELAY 60000
 
 rgb_lcd lcd;
-Ultrasonic ultrasonic(3);
+Ultrasonic ultrasonic(3); 
 #define LED 8
 #define motion 7
 int incomingdata = 0;
