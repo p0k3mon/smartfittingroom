@@ -9,6 +9,7 @@ Hardware used:
 - Base shield
 - LED
 - Backlight LCD
+- Wifi antenna
 
 Steps to connect the components together:
 1. Setup the linkedIt one board with a base shield
